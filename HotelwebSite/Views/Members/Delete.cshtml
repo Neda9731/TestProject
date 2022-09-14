@@ -1,0 +1,62 @@
+﻿@model HotelwebSite.Models.Member
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div>
+    <h2>حذف</h2>
+    <div class="container text-right w-25" style="color:#00008B;">
+        <h4>کاربر</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                ناام و نام خانوادگی
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.name_m)
+            </dd>
+
+            <dt>
+                نام کاربری
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Username_m)
+            </dd>
+
+            <dt>
+                کلمه عبور
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password_m)
+            </dd>
+
+            <dt>
+                ایمیل
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email_m)
+            </dd>
+
+        </dl>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="حذف" class="btn btn-default" style="color:#00008B;background-color:#CEF7FA" /> |
+
+            </div>
+        }
+
+    </div>
+    </div>
+        

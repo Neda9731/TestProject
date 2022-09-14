@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="Code_reserv" />
+    </Key>
+    <Property Name="Code_reserv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code_r" Type="Int32" />
+    <Property Name="Code_m" Type="Int32" />
+    <Property Name="date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Rooms" Relationship="HotelDBModel.FK_Reservation_Rooms" FromRole="Reservation" ToRole="Rooms" />
+    <NavigationProperty Name="Member" Relationship="HotelDBModel.FK_Reservation_Member" FromRole="Reservation" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="HotelDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Reservation" EntityType="Self.Reservation" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Rooms" EntityType="HotelDBModel.Rooms" />
+    <AssociationSet Name="FK_Reservation_Rooms" Association="HotelDBModel.FK_Reservation_Rooms">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <EntitySet Name="Member" EntityType="HotelDBModel.Member" />
+    <AssociationSet Name="FK_Reservation_Member" Association="HotelDBModel.FK_Reservation_Member">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="Code_r" />
+    </Key>
+    <Property Name="Code_r" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number_r" Type="Int32" />
+    <Property Name="price_r" Type="Double" />
+    <Property Name="Desc_r" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Image_r" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Reservation" Relationship="HotelDBModel.FK_Reservation_Rooms" FromRole="Rooms" ToRole="Reservation" />
+  </EntityType>
+  <Association Name="FK_Reservation_Rooms">
+    <End Type="HotelDBModel.Rooms" Role="Rooms" Multiplicity="0..1" />
+    <End Type="HotelDBModel.Reservation" Role="Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="Code_r" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="Code_r" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="Code_m" />
+    </Key>
+    <Property Name="Code_m" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Username_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Reservation" Relationship="HotelDBModel.FK_Reservation_Member" FromRole="Member" ToRole="Reservation" />
+  </EntityType>
+  <Association Name="FK_Reservation_Member">
+    <End Type="HotelDBModel.Member" Role="Member" Multiplicity="0..1" />
+    <End Type="HotelDBModel.Reservation" Role="Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Code_m" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="Code_m" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

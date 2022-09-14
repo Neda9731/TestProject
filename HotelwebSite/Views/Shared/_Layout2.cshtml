@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        
+            @{
+                if (Session["user"] != null)
+                {
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="nav-link" href="~/Home/Index">
+                            صفحه اصلی
+                        </a>
+                        <a class="nav-link" href="~/contact_us/Index">
+                            تماس باما
+                        </a>
+                        <a class="nav-link" href="~/About/Index">
+                           درباره ی ما
+                        </a>
+                        <a href="~/Members/exit"><div class="btn btn-danger">خروج</div></a>
+                    </nav>
+                    <div class="btn btn-light">
+                      کاربر جاری:  
+                        <span>@Session["user"]</span>
+                      
+                    </div>  
+                      
+                }
+
+                if (Session["admin"] != null)
+                {
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="nav-link" href="~/Rooms/Create">
+                            اتاق جدید
+                        </a>
+                        <a class="nav-link" href="~/Reservations/Index">
+                            اتاق های رزروشده
+                        </a>
+                        <a class="nav-link" href="~/Members/Index">
+                            کاربران
+                        </a>
+                        <a href="~/Members/exit"><div class="btn btn-danger">خروج</div></a>
+                    </nav>
+                    <div class="btn btn-light">
+                       پنل مدیریت:
+                        <span>@Session["admin"]</span>
+
+                    </div>
+                    
+                }
+}
+        
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+
+
+
+    <footer class="page-footer font-small blue pt-4 mt-5" style="background-color:#CEF7FA;height:300px;">
+        <div class="container">
+
+            <!-- Grid row-->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="mb-2 flex-center">
+                    <div class="row">
+                        <div class="col-lg-2 col-sm-12">
+                            <!-- Facebook -->
+                            <a class="fa-ic">
+                                <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <!-- Twitter -->
+                            <a class="tw-ic">
+                                <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <!-- Google +-->
+                            <a class="gplus-ic">
+                                <i class="fa fa-google fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <!--Linkedin -->
+                            <a class="li-ic">
+                                <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+
+                            <!--Instagram-->
+                            <a class="ins-ic">
+                                <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+
+                            <!--Pinterest-->
+                            <a class="pin-ic">
+                                <i class="fa fa-pinterest fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            © 2018 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/"> Atashi</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

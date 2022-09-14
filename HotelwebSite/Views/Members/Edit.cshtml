@@ -1,0 +1,66 @@
+﻿@model HotelwebSite.Models.Member
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="container text-right w-25" style="color:#00008B;">
+            <h4>ویرایش کاربر </h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Code_m)
+
+            <div class="row">
+                نام ونام خانوادگی
+                <div class="col-lg-12">
+                    @Html.EditorFor(model => model.name_m, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.name_m, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                نام کاربری
+                <div class="col-lg-12">
+                    @Html.EditorFor(model => model.Username_m, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Username_m, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                کلمه عبور
+                <div class="col-lg-12">
+                    @Html.EditorFor(model => model.Password_m, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password_m, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                ایمیل
+                <div class="col-lg-12">
+                    @Html.EditorFor(model => model.Email_m, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email_m, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-12">
+                    <input type="submit" value="ذخیره" class="btn btn-default" style="color:#00008B;background-color:#CEF7FA" />
+                </div>
+            </div>
+        </div>
+
+            
+
+        </div>
+   
+}
+
+      

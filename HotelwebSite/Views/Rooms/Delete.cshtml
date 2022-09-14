@@ -1,0 +1,61 @@
+﻿@model HotelwebSite.Models.Rooms
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<div class="container text-right w-25" style="color:#00008B;"><br /><br /><br />
+    <h2>حذف اتاق</h2>
+
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                ظرفیت اتاق
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Number_r)
+            </dd>
+
+            <dt>
+                قیمت اتاق
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.price_r)
+            </dd>
+
+            <dt>
+                درباره ی اتاق
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Desc_r)
+            </dd>
+
+            <dt>
+                تصویر
+            </dt>
+
+            <dd>
+                <img src="@Url.Content(Model.Image_r)" width="300" />
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="حذف" class="btn btn-default" style="color:#00008B;background-color:#CEF7FA" /> 
+              
+            </div>
+        }
+    </div>
+</div>

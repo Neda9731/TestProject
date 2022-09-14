@@ -1,0 +1,54 @@
+﻿@model HotelwebSite.Models.Reservation
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <div class="container text-right w-25" style="color:#00008B;">
+            <h2>ویرایش</h2>
+         
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Code_reserv)
+
+            <div class="row">
+              
+                <div class="col-lg-12">کد اتاق
+                    @Html.DropDownList("Code_r", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Code_r, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+            
+                <div class="col-lg-12">کد کاربر
+                    @Html.DropDownList("Code_m", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Code_m, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+              
+                <div class="col-lg-12"> تاریخ
+                    @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-12">
+                    <input type="submit" value="ذخیره" class="btn btn-default" style="color:#00008B;background-color:#CEF7FA" />
+                </div>
+            </div>
+        </div>
+        </div>
+}
+

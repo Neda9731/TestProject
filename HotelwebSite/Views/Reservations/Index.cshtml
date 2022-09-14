@@ -1,0 +1,37 @@
+﻿@model IEnumerable<HotelwebSite.Models.Reservation>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="container text-right " style="color:#00008B;">
+    <h2>رزرو اتاق</h2>
+    <p>
+        @Html.ActionLink("رزرو جدید", "Create")
+    </p>
+    <table class="table">
+       
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Member.name_m)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rooms.Desc_r)
+                </td>
+                <td>
+                    @Html.ActionLink("ویرایش", "Edit", new { id = item.Code_reserv }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Code_reserv }) |
+                    @Html.ActionLink("حذف", "Delete", new { id = item.Code_reserv })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

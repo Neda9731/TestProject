@@ -1,0 +1,54 @@
+﻿@model HotelwebSite.Models.Rooms
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <div class="container text-right w-25" style="color:#00008B;>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                ظرفیت تاق
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Number_r)
+            </dd>
+
+            <dt>
+                قیمت اتاق
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.price_r)
+            </dd>
+
+            <dt>
+                درباره ی اتاق
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Desc_r)
+            </dd>
+
+            <dt>
+                تصویر
+            </dt>
+
+            <dd>
+                <img src="@Url.Content(Model.Image_r)" width="500" />
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("ویرایش", "Edit", new { id = Model.Code_r }) 
+        @Html.ActionLink("بازگشت", "Index")
+    </p>
+
+   </div>
+   

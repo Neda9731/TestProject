@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        .carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+    </style>
+</head>
+<body>
+    <header>
+       
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+
+                <!-- Slide One - Set the background image for this slide in the line below -->
+                <div class="carousel-item active" style="background-image: url('../../Image/hotel_edtakhr.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+
+                        <h2 class="display-4">لوکس ترین هتل های دنیا</h2>
+                        <p class="lead">Luxury Hotels for Honeymooners  </p>
+                    </div>
+                </div>
+                <!-- Slide Two - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('../../Image/هتل-ترنج-کیش.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4"> جزیره خصوصی آزورا کیلایی، موزامبیک</h2>
+                        <p class="lead">Azura Quilalea Private Island</p>
+                    </div>
+                </div>
+                <!-- Slide Three - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('../../Image/hotel_stambol.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4">چوال بلانک راندهلی، مالدیو</h2>
+                        <p class="lead">Cheval Blanc Randheli  </p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div class=" position-absolute h-100 w-100 d-flex" style="z-index:1000;top:0;left:0; display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;">
+            <div class="card align-items-center" style="width:400px;height:250px;margin:auto;background-color:#F0F8FF">
+                <div class="card-body">
+                    <h5 class="card-title" style="color:#00008B" ; font-size:20px">هتل ستاره دار</h5>
+                </div>
+                <div class="card-text">
+                    <form class="align-content-center" method="post" style="color:#00008B" action="~/Members/login">
+                        <input type="text" name="Username" style="text-align:right" /> نام کاربری<br /><br />
+                        <input type="text" name="password" style="text-align:right" /> کلمه عبور<br /><br />
+                        <input class="btn btn-success m-3 w-25" type="submit" value="ورود" />
+                        <a href="~/Members/Create"><div class="btn btn-success m-3 w-25" >ثبت نام</div></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+    </header>
+  
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+       
+    </div>
+    <!-- Footer -->
+    <footer class="page-footer font-small blue pt-4 mt-5" style="background-color:#CEF7FA">
+
+        <div class="container">
+
+            <!-- Grid row-->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="mb-2 flex-center">
+                    <div class="row">
+                        <div class="col-lg-2 col-sm-12">
+                            <!-- Facebook -->
+                            <a class="fa-ic">
+                                <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <!-- Twitter -->
+                            <a class="tw-ic">
+                                <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <!-- Google +-->
+                            <a class="gplus-ic">
+                                <i class="fa fa-google fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <!--Linkedin -->
+                            <a class="li-ic">
+                                <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+
+                            <!--Instagram-->
+                            <a class="ins-ic">
+                                <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+
+                            <!--Pinterest-->
+                            <a class="pin-ic">
+                                <i class="fa fa-pinterest fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            © 2018 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/"> Atashi</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+
+</html>

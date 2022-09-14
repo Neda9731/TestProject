@@ -1,0 +1,55 @@
+﻿@model HotelwebSite.Models.Reservation
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container text-right" style="color:#00008B;">
+    <div>
+        <h2>حذف رزرو</h2>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                تاریخ رزرو
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.date)
+            </dd>
+
+            <dt>
+                نام و نام خانوادگی
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Member.name_m)
+            </dd>
+
+            <dt>
+                درباره ی اتاق
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Rooms.Desc_r)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="حذف" class="btn btn-default" style="color:#00008B;background-color:#CEF7FA" /> |
+                @Html.ActionLink("بازگشت", "Index")
+            </div>
+
+
+
+        }
+
+    </div>
+</div>

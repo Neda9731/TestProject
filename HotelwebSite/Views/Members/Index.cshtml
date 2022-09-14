@@ -1,0 +1,54 @@
+﻿@model IEnumerable<HotelwebSite.Models.Member>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container text-right " style="color:#00008B;">
+    <h2>لیست کاربران</h2>
+
+    <p>
+        @Html.ActionLink("کاربر جدید", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                نام و نام خانوادگی
+            </th>
+            <th>
+                نام کاربری
+            </th>
+            <th>
+                کلمه عبور
+            </th>
+            <th>
+                ایمیل
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name_m)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username_m)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password_m)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email_m)
+                </td>
+                <td>
+                    @Html.ActionLink("ویرایش", "Edit", new { id = item.Code_m }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Code_m }) |
+                    @Html.ActionLink("حذف", "Delete", new { id = item.Code_m })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

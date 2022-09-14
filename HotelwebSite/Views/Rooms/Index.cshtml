@@ -1,0 +1,55 @@
+﻿@model IEnumerable<HotelwebSite.Models.Rooms>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<div class="container text-right">
+    <h2>لیست اتاق ها</h2>
+    <br />
+    <p>
+        @Html.ActionLink("ثبت اتاق جدید", "Create")
+    </p>
+    <table class="table"style="text-align:right">
+        <tr>
+            <th>
+              ظرفیت اتاق
+            </th>
+            <th>
+              قیمت اتاق
+            </th>
+            <th>
+               درباره ی اتاق
+            </th>
+            <th>
+               تصویر
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_r)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price_r)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desc_r)
+                </td>
+                <td>
+                   <img src="@Url.Content(item.Image_r)"width="500" />
+                </td>
+                <td>
+                    @Html.ActionLink("ویرایش اتاق", "Edit", new { id = item.Code_r }) |
+                    @Html.ActionLink("مشاهده اتاق", "Details", new { id = item.Code_r }) |
+                    @Html.ActionLink("حذف اتاق", "Delete", new { id = item.Code_r })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

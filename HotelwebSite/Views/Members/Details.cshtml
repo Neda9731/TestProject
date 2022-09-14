@@ -1,0 +1,53 @@
+﻿@model HotelwebSite.Models.Member
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div>
+    <div class="container text-right" style="color:#00008B"><h2>Details</h2>
+        <h4>کاربران</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                نام و نام خانوادگی
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.name_m)
+            </dd>
+
+            <dt>
+                نام کاربری
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Username_m)
+            </dd>
+
+            <dt>
+                کلمه عبور
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password_m)
+            </dd>
+
+            <dt>
+                ایمیل
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email_m)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("ویرایش", "Edit", new { id = Model.Code_m }) |
+        @Html.ActionLink("بازگشت", "Index")
+    </p>
+</div>
